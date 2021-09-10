@@ -1,0 +1,26 @@
+.gameContainer {
+  width: 400px;
+  margin: 20px auto;
+  border: 1px solid;
+  padding: 60px 10px;
+  border-radius: 30px;
+}
+
+form.input-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  row-gap: 20px;
+}
+
+input[type="number"] {
+  padding: 10px 10px;
+}
+
+button.check-button {
+  padding: 10px 0;
+  background: transparent;
+  width: 50%;
+  margin: 0 auto;
+}

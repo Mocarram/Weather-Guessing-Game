@@ -1,0 +1,26 @@
+.scorecard {
+  display: flex;
+  column-gap: 20px;
+  margin: 0 auto;
+  justify-content: center;
+  font-size: 16px;
+  border-top: 2px solid gray;
+  padding-top: 10px;
+}
+
+.single-score.green {
+  color: green;
+}
+
+p.guessed-score {
+  font-weight: 600;
+  margin: 0;
+}
+
+.red {
+  color: red;
+}
+
+p.correct-score {
+  margin: 5px 0 0 0;
+}
