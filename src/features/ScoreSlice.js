@@ -13,13 +13,16 @@ export const scoreSlice = createSlice({
     addScore: (state, action) => {
       state.value = [...state.value, action.payload];
     },
+    resetScore: (state) => {
+      state.value = [];
+    },
     addPoint: (state) => {
       state.point += 1;
     },
   },
 });
 
-export const { addScore, addPoint } = scoreSlice.actions;
+export const { addScore, resetScore, addPoint } = scoreSlice.actions;
 
 export const selectScores = (state) => state.scores.value;
 export const selectPoints = (state) => state.scores.point;

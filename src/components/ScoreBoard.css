@@ -1,4 +1,4 @@
-.scorecard {
+.scores {
   display: flex;
   column-gap: 20px;
   margin: 0 auto;
@@ -10,6 +10,14 @@
 
 .single-score.green {
   color: green;
+}
+
+p.city-name {
+  overflow: hidden;
+  max-width: 40px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
 }
 
 p.guessed-score {

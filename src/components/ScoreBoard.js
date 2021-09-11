@@ -8,15 +8,20 @@ function ScoreBoard() {
 
   return (
     <div className="scorecard">
-      {scores.map((score, i) => (
-        <div
-          key={i}
-          className={`single-score ${score.result ? "green" : "red"}`}
-        >
-          <p className="guessed-score">{score.guess}</p>
-          <p className="correct-score">Was {score.correct}</p>
-        </div>
-      ))}
+      <h5>Guess (G) and Correct (C) answers</h5>
+      <div className="scores">
+        {scores.map((score, i) => (
+          <div
+            key={i}
+            className={`single-score ${score.result ? "green" : "red"}`}
+            title={score.city}
+          >
+            <p className="city-name">{score.city}</p>
+            <p className="guessed-score">G: {score.guess}</p>
+            <p className="correct-score">C: {score.correct}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

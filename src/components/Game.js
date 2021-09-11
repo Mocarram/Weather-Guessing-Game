@@ -1,40 +1,68 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import cities from "../data/cities.js";
-import { addScore, addPoint } from "../features/ScoreSlice.js";
 import Result from "./Result";
-import ScoreBoard from "./ScoreBoard";
 import "./Game.css";
+import { useSelector } from "react-redux";
+import { addScore, addPoint } from "../features/ScoreSlice.js";
+import { selectCities } from "../features/CitiesSlice.js";
+import ScoreBoard from "./ScoreBoard";
 
 function Game() {
+  const cities = useSelector(selectCities);
   const dispatch = useDispatch();
   const [userGuess, setUserGuess] = useState("");
+  const [apiResult, setApiResult] = useState("");
   const [cityTraverse, setCityTraverse] = useState(1);
-  const [currentCity, setCurrentCity] = useState(cities[0]?.name);
+  const [currentCity, setCurrentCity] = useState(cities[0]);
   const [showResult, setShowResult] = useState(false);
+  const [disableCheck, setDisableCheck] = useState(false);
+  const [gameSteps, setGameSteps] = useState(1);
+  const guessInputRef = useRef(null);
 
-  const handleCheck = async (e) => {
+  useEffect(() => {
+    guessInputRef.current.focus();
+    // Enabling the "next" button on new city
+    setDisableCheck(false);
+
+    // Getting the temp for the current city on mount
+    (async () => {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${currentCity?.Name}&units=metric&appid=9cff733aee57cb05b63dd4f731c46bc4`
+      );
+      const data = await response.json();
+      setApiResult(Math.round(data?.main?.temp));
+    })();
+  }, [currentCity]);
+
+  const handleCheck = (e) => {
     e.preventDefault();
 
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&units=metric&appid=9cff733aee57cb05b63dd4f731c46bc4`
-    );
-    const data = await response.json();
-    const apiResult = Math.round(data?.main?.temp);
+    // Disabling the button until next city
+    setDisableCheck(true);
 
     // Checking if the result is correct
     if (userGuess >= apiResult - 5 && userGuess <= apiResult + 5) {
       // Adding result to the store
       dispatch(
-        addScore({ guess: userGuess, correct: apiResult, result: true })
+        addScore({
+          city: currentCity.Name,
+          guess: userGuess || "Pass",
+          correct: apiResult,
+          result: true,
+        })
       );
 
-      // Adding point
+      // Adding +1 point
       dispatch(addPoint());
     } else {
       // Adding result to the store
       dispatch(
-        addScore({ guess: userGuess, correct: apiResult, result: false })
+        addScore({
+          city: currentCity.Name,
+          guess: userGuess || "N/A",
+          correct: apiResult,
+          result: false,
+        })
       );
     }
 
@@ -42,7 +70,8 @@ function Game() {
     if (cityTraverse < 5) {
       // Go for the next city
       setCityTraverse(cityTraverse + 1);
-      setCurrentCity(cities[cityTraverse].name);
+      setCurrentCity(cities[cityTraverse]);
+      setGameSteps(gameSteps + 1);
     } else {
       // go to result publication
       setShowResult(true);
@@ -54,29 +83,37 @@ function Game() {
 
   return (
     <>
-      <div className="gameContainer">
+      <div className="game__container">
         {showResult ? (
           <Result />
         ) : (
           <>
-            <h3 className="city"> City Name: {currentCity} </h3>
+            <header>
+              <p className="steps">{gameSteps}/5</p>
+              <h3 className="city"> {currentCity.Name} </h3>
+              <h5 className="country"> (Country: {currentCity.Country}) </h5>
+            </header>
             <form className="input-form" onSubmit={handleCheck}>
               <input
                 value={userGuess}
                 type="number"
                 onChange={(e) => setUserGuess(parseInt(e.target.value))}
-                placeholder="Input temp in celcius"
-                autoFocus
+                placeholder="Temperature of this city in celsius?"
+                ref={guessInputRef}
               />
-              <button className="check-button" type="submit">
+              <button
+                className="check-button"
+                type="submit"
+                disabled={disableCheck}
+              >
                 Check
               </button>
             </form>
+
+            {gameSteps > 1 ? <ScoreBoard /> : ""}
           </>
         )}
       </div>
-
-      <ScoreBoard />
     </>
   );
 }
