@@ -16,6 +16,7 @@ function Start() {
     const cities = smartCities.slice(random, random + 5);
 
     // Add times to the cities
+    // Add cities with time to the store
     cities.map((city) =>
       (async () => {
         const response = await fetch(
