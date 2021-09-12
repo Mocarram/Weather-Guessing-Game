@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { resetScore, selectPoints } from "../features/ScoreSlice";
+import { resetPoint, resetScore, selectPoints } from "../features/ScoreSlice";
 import ScoreBoard from "./ScoreBoard";
 import "./Result.css";
 import { useHistory } from "react-router-dom";
@@ -15,6 +15,8 @@ function Result() {
   const playAgain = () => {
     // removes scores from redux
     dispatch(resetScore());
+    // removes Points from redux
+    dispatch(resetPoint());
 
     // redirects to the start page
     history.push("/");
