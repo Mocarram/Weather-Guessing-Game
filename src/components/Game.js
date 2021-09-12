@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { addScore, addPoint } from "../features/ScoreSlice.js";
 import { selectCities } from "../features/CitiesSlice.js";
 import ScoreBoard from "./ScoreBoard";
+import { useHistory } from "react-router-dom";
 
 function Game() {
   const cities = useSelector(selectCities);
@@ -18,6 +19,7 @@ function Game() {
   const [disableCheck, setDisableCheck] = useState(false);
   const [gameSteps, setGameSteps] = useState(1);
   const guessInputRef = useRef(null);
+  const history = useHistory();
 
   useEffect(() => {
     // Always autofocusing the input element
@@ -81,6 +83,13 @@ function Game() {
     // Reset user guess
     setUserGuess("");
   };
+
+  if (!cities.length) {
+    // if cities array is empty
+    history.replace("/");
+    // Reloading the page to skip errors
+    window.location.reload();
+  }
 
   return (
     <>
