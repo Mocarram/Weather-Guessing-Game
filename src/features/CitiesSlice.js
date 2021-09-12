@@ -9,13 +9,13 @@ export const citiesSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    addCities: (state, action) => {
-      state.value = action.payload;
+    addCity: (state, action) => {
+      state.value = [...state.value, action.payload];
     },
   },
 });
 
-export const { addCities } = citiesSlice.actions;
+export const { addCity } = citiesSlice.actions;
 
 export const selectCities = (state) => state.cities.value;
 

@@ -3,7 +3,7 @@ import "./Start.css";
 import { Link } from "react-router-dom";
 import smartCities from "../data/smartCities.js";
 import { useDispatch } from "react-redux";
-import { addCities } from "../features/CitiesSlice";
+import { addCity } from "../features/CitiesSlice";
 import Footer from "./Footer";
 
 function Start() {
@@ -15,7 +15,19 @@ function Start() {
     const random = Math.floor(Math.random() * 142);
     const cities = smartCities.slice(random, random + 5);
 
-    dispatch(addCities({ ...cities }));
+    // Add times to the cities
+    cities.map((city) =>
+      (async () => {
+        const response = await fetch(
+          `https://api.ipgeolocation.io/timezone?apiKey=c81f49ed724d4617ab2d6ce26a2a72b0&location=${city?.Name}`
+        );
+        const data = await response.json();
+        const time =
+          parseInt(data?.time_12.substr(0, 2)) + data?.time_12.substr(8, 12);
+        city.Time = time;
+        dispatch(addCity({ ...city }));
+      })()
+    );
   }, [dispatch]);
 
   return (

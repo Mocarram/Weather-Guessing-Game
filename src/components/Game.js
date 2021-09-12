@@ -14,26 +14,13 @@ function Game() {
   const [apiResult, setApiResult] = useState("");
   const [cityTraverse, setCityTraverse] = useState(1);
   const [currentCity, setCurrentCity] = useState(cities[0]);
-  const [currentCityTime, setCurrentCityTime] = useState(null);
   const [showResult, setShowResult] = useState(false);
   const [disableCheck, setDisableCheck] = useState(false);
   const [gameSteps, setGameSteps] = useState(1);
   const guessInputRef = useRef(null);
 
   useEffect(() => {
-    // Getting the time for the current city on mount
-    (async () => {
-      const response = await fetch(
-        `https://api.ipgeolocation.io/timezone?apiKey=c81f49ed724d4617ab2d6ce26a2a72b0&location=${currentCity?.Name}`
-      );
-      const data = await response.json();
-      setCurrentCityTime(
-        parseInt(data?.time_12.substr(0, 2)) + data?.time_12.substr(8, 12)
-      );
-    })();
-  }, [currentCity]);
-
-  useEffect(() => {
+    // Always autofocusing the input element
     guessInputRef.current.focus();
     // Enabling the "next" button on new city
     setDisableCheck(false);
@@ -60,7 +47,7 @@ function Game() {
       dispatch(
         addScore({
           city: currentCity.Name,
-          guess: userGuess || "Pass",
+          guess: userGuess || "N/A",
           correct: apiResult,
           result: true,
         })
@@ -107,8 +94,7 @@ function Game() {
               <h3 className="city"> {currentCity.Name} </h3>
               <h5 className="country"> (Country: {currentCity.Country}) </h5>
               <h5 className="time">
-                {" "}
-                It's {currentCityTime} in {currentCity.Name}{" "}
+                It's {currentCity.Time} in {currentCity.Name}
               </h5>
             </header>
             <form className="input-form" onSubmit={handleCheck}>
