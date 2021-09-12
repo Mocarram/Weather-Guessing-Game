@@ -94,7 +94,7 @@ function Game() {
               <h3 className="city"> {currentCity.Name} </h3>
               <h5 className="country"> (Country: {currentCity.Country}) </h5>
               <h5 className="time">
-                It's {currentCity.Time} in {currentCity.Name}
+                It's about {currentCity.Time} in {currentCity.Name}
               </h5>
             </header>
             <form className="input-form" onSubmit={handleCheck}>
