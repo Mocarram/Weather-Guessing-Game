@@ -24,7 +24,7 @@ function Game() {
   useEffect(() => {
     // Always autofocusing the input element
     guessInputRef.current.focus();
-    // Enabling the "next" button on new city
+    // Enabling the "check" button on new city
     setDisableCheck(false);
 
     // Getting the temp for the current city on mount

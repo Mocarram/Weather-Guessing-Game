@@ -12,10 +12,13 @@ export const citiesSlice = createSlice({
     addCity: (state, action) => {
       state.value = [...state.value, action.payload];
     },
+    resetCities: (state) => {
+      state.value = [];
+    },
   },
 });
 
-export const { addCity } = citiesSlice.actions;
+export const { addCity, resetCities } = citiesSlice.actions;
 
 export const selectCities = (state) => state.cities.value;
 

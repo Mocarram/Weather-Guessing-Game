@@ -5,6 +5,7 @@ import ScoreBoard from "./ScoreBoard";
 import "./Result.css";
 import { useHistory } from "react-router-dom";
 import Footer from "./Footer";
+import { resetCities } from "../features/CitiesSlice";
 
 function Result() {
   const dispatch = useDispatch();
@@ -17,6 +18,8 @@ function Result() {
     dispatch(resetScore());
     // removes Points from redux
     dispatch(resetPoint());
+
+    dispatch(resetCities());
 
     // redirects to the start page
     history.push("/");

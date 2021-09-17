@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Start.css";
 import { Link } from "react-router-dom";
 import smartCities from "../data/smartCities.js";
@@ -8,12 +8,15 @@ import Footer from "./Footer";
 
 function Start() {
   const dispatch = useDispatch();
+  const [disableStart, setDisableStart] = useState(true);
 
   // Adding 5 cities to the redux store on page load
   useEffect(() => {
     // get the cities and push them to redux store
     const random = Math.floor(Math.random() * 142);
     const cities = smartCities.slice(random, random + 5);
+
+    console.log(random);
 
     // Add times to the cities
     // Add cities with time to the store
@@ -27,6 +30,7 @@ function Start() {
           parseInt(data?.time_12.substr(0, 2)) + data?.time_12.substr(8, 12);
         city.Time = time;
         dispatch(addCity({ ...city }));
+        setDisableStart(false);
       })()
     );
   }, [dispatch]);
@@ -39,7 +43,7 @@ function Start() {
       </header>
       <section className="start__button">
         <Link to="/game">
-          <button>Start</button>
+          <button disabled={disableStart}>Start</button>
         </Link>
       </section>
       <section className="rules">
