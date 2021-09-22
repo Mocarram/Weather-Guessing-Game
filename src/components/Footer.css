@@ -11,4 +11,9 @@
   font-size: 1.8rem;
   padding: 1rem 2rem;
   border-radius: 4rem;
+  transition: all 0.2s;
+}
+
+.footer__container button:hover {
+  background: #003566;
 }

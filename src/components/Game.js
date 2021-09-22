@@ -24,18 +24,21 @@ function Game() {
   useEffect(() => {
     // Always autofocusing the input element
     guessInputRef.current.focus();
+
     // Enabling the "check" button on new city
     setDisableCheck(false);
 
     // Getting the temp for the current city on mount
     (async () => {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${currentCity?.Name}&units=metric&appid=9cff733aee57cb05b63dd4f731c46bc4`
+        `https://api.openweathermap.org/data/2.5/weather?q=${currentCity?.Name}&units=metric&appid=10a1b4375579c6a7e7dae0c9c610bf2a`
       );
       const data = await response.json();
       setApiResult(Math.round(data?.main?.temp));
     })();
   }, [currentCity]);
+
+  console.log(apiResult);
 
   const handleCheck = (e) => {
     e.preventDefault();
@@ -101,7 +104,7 @@ function Game() {
             <header>
               <p className="steps">{gameSteps}/5</p>
               <h2 className="city"> {currentCity.Name} </h2>
-              <h5 className="country"> (Country: {currentCity.Country}) </h5>
+              <h5 className="country"> Country: {currentCity.Country} </h5>
               <h5 className="time">
                 It's about {currentCity.Time} in {currentCity.Name}
               </h5>

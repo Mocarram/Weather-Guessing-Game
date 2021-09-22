@@ -13,10 +13,10 @@ function Start() {
   // Adding 5 cities to the redux store on page load
   useEffect(() => {
     // get the cities and push them to redux store
-    const random = Math.floor(Math.random() * 142);
+    const random = Math.floor(Math.random() * (smartCities.length - 5));
     const cities = smartCities.slice(random, random + 5);
 
-    console.log(random);
+    // console.log(random);
 
     // Add times to the cities
     // Add cities with time to the store
@@ -43,7 +43,13 @@ function Start() {
       </header>
       <section className="start__button">
         <Link to="/game">
-          <button disabled={disableStart}>Start</button>
+          <button
+            className={disableStart ? "loading__state" : ""}
+            disabled={disableStart}
+          >
+            {" "}
+            {disableStart ? "loading..." : "Start"}
+          </button>
         </Link>
       </section>
       <section className="rules">

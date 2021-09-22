@@ -37,6 +37,11 @@ h5.time {
   color: #c1c1c1;
 }
 
+.input-form input[type="number"]:focus {
+  outline: none;
+  border-color: #00f5d4;
+}
+
 .input-form button.check-button {
   background: #0b133c;
   padding: 1rem 3rem;
@@ -46,4 +51,9 @@ h5.time {
   border: 0.2rem solid #c1c1c1;
   border-radius: 4.5rem;
   margin: 2rem 0;
+  transition: all 0.2s;
+}
+
+.input-form button.check-button:hover {
+  background: #003566;
 }

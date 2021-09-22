@@ -3,6 +3,7 @@
 }
 
 .start__header {
+  transition: all 2s;
   margin: 20px 0 30px;
 }
 
@@ -15,6 +16,25 @@
   color: #edf2f4;
 }
 
+.loading__state {
+  color: #e5e5e5 !important;
+  cursor: wait;
+  animation: animate-bg-color 3s linear infinite;
+  filter: brightness(0.8);
+}
+
+@keyframes animate-bg-color {
+  0% {
+    background: #22577a;
+  }
+  50% {
+    background: #284b63;
+  }
+  100% {
+    background: #003249;
+  }
+}
+
 .start__button a button {
   background: #0b133c;
   padding: 1rem 3rem;
@@ -23,6 +43,11 @@
   font-weight: bold;
   border: 0.2rem solid #c1c1c1;
   border-radius: 4.5rem;
+  transition: all 0.2s;
+}
+
+.start__button a button:hover {
+  background: #003566;
 }
 
 .start__button {

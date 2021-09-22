@@ -25,4 +25,9 @@
   color: #fdfffc;
   font-size: 1.8rem;
   font-weight: 600;
+  transition: all 0.2s;
+}
+
+.result__header button:hover {
+  background: #003566;
 }
