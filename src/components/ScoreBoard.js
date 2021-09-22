@@ -8,7 +8,7 @@ function ScoreBoard() {
 
   return (
     <div className="scorecard">
-      <h5>Guess (G) and Correct (C) answers</h5>
+      <h5>Guessed (G) and Correct (C) temperature</h5>
       <div className="scores">
         {scores.map((score, i) => (
           <div
