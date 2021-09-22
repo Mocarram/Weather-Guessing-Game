@@ -27,14 +27,16 @@ function Result() {
 
   useEffect(() => {
     if (points >= 3) {
-      setwinOrLose("Won");
+      setwinOrLose("won");
     }
   }, [points]);
 
   return (
     <div className="result-container">
       <section className="result__header">
-        <h2>You {winOrLose}</h2>
+        <h2 className={winOrLose === "won" ? "won" : "lost"}>
+          You {winOrLose}
+        </h2>
         <p>Score: {points}/5</p>
         {/* use useHistory to redirect and remove redux entries */}
         <button onClick={playAgain}>Play Again</button>

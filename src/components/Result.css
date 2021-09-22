@@ -1,0 +1,28 @@
+.result__header {
+  background: #fdfffc;
+  border-radius: 2rem;
+  padding: 2rem 1rem;
+}
+
+.result__header .won {
+  color: #2a9d8f;
+}
+
+.result__header .lost {
+  color: #e71d36;
+}
+
+.result__header p {
+  color: #0b132b;
+  margin: 1.6rem 0;
+  font-weight: bold;
+}
+
+.result__header button {
+  background: #0b133c;
+  padding: 1rem 2rem;
+  border-radius: 4rem;
+  color: #fdfffc;
+  font-size: 1.8rem;
+  font-weight: 600;
+}

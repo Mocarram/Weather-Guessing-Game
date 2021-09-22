@@ -1,0 +1,43 @@
+.start__container {
+  color: #fdfffc;
+}
+
+.start__header {
+  margin: 20px 0 30px;
+}
+
+.start__header h2 {
+  margin-bottom: 1.5rem;
+}
+
+.start__header span {
+  font-size: 2.6rem;
+  color: #edf2f4;
+}
+
+.start__button a button {
+  background: #0b133c;
+  padding: 1rem 3rem;
+  color: #fdfffc;
+  font-size: 2.6rem;
+  font-weight: bold;
+  border: 0.2rem solid #c1c1c1;
+  border-radius: 4.5rem;
+}
+
+.start__button {
+  margin: 2rem 0;
+}
+
+.rules {
+  margin: 2rem 0;
+}
+.rules h3 {
+  margin-bottom: 0.6rem;
+}
+.rules ol {
+  list-style-position: inside;
+}
+.rules li {
+  margin-bottom: 1rem;
+}

@@ -1,26 +1,49 @@
 .game__container {
+  color: #fdfffc;
+  margin: 2rem 0;
+}
+
+p.steps {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #8d99ae;
+  margin: 0rem;
+}
+
+h2.city {
+  margin: 1rem 0 1.6rem;
+}
+
+h5.country,
+h5.time {
+  color: #c4c4c4;
+  font-size: 1.4rem;
+  margin: 0 0 1rem;
+}
+
+.input-form {
+  margin: 2rem 0;
+}
+
+.input-form input[type="number"] {
   width: 400px;
-  margin: 20px auto;
-  border: 1px solid;
-  padding: 60px 10px;
-  border-radius: 30px;
+  display: block;
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 2rem;
+  border-radius: 5.4rem;
+  background: #040a27;
+  border: 1px solid #c1c1c1;
+  color: #c1c1c1;
 }
 
-form.input-form {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: 0 auto;
-  row-gap: 20px;
-}
-
-input[type="number"] {
-  padding: 10px 10px;
-}
-
-button.check-button {
-  padding: 10px 0;
-  background: transparent;
-  width: 50%;
-  margin: 0 auto;
+.input-form button.check-button {
+  background: #0b133c;
+  padding: 1rem 3rem;
+  color: #fdfffc;
+  font-size: 2.6rem;
+  font-weight: bold;
+  border: 0.2rem solid #c1c1c1;
+  border-radius: 4.5rem;
+  margin: 2rem 0;
 }

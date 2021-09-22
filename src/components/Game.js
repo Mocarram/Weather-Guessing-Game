@@ -100,7 +100,7 @@ function Game() {
           <>
             <header>
               <p className="steps">{gameSteps}/5</p>
-              <h3 className="city"> {currentCity.Name} </h3>
+              <h2 className="city"> {currentCity.Name} </h2>
               <h5 className="country"> (Country: {currentCity.Country}) </h5>
               <h5 className="time">
                 It's about {currentCity.Time} in {currentCity.Name}

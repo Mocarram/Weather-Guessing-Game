@@ -48,8 +48,10 @@ function Start() {
       </section>
       <section className="rules">
         <h3>Rules:</h3>
-        <p>1.Guess temperature of the displayed city in celsius</p>
-        <p>2. A deviation of 5 will be considered correct</p>
+        <ol>
+          <li>Guess temperature of the displayed city in celsius</li>
+          <li>A deviation of 5 will be considered correct</li>
+        </ol>
       </section>
       <Footer />
     </div>
