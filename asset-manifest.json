@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Weather-Guessing-Game/static/css/main.86675dd0.chunk.css",
+    "main.js": "/Weather-Guessing-Game/static/js/main.1a75c680.chunk.js",
+    "main.js.map": "/Weather-Guessing-Game/static/js/main.1a75c680.chunk.js.map",
+    "runtime-main.js": "/Weather-Guessing-Game/static/js/runtime-main.0956b95a.js",
+    "runtime-main.js.map": "/Weather-Guessing-Game/static/js/runtime-main.0956b95a.js.map",
+    "static/css/2.679831fc.chunk.css": "/Weather-Guessing-Game/static/css/2.679831fc.chunk.css",
+    "static/js/2.f517104b.chunk.js": "/Weather-Guessing-Game/static/js/2.f517104b.chunk.js",
+    "static/js/2.f517104b.chunk.js.map": "/Weather-Guessing-Game/static/js/2.f517104b.chunk.js.map",
+    "index.html": "/Weather-Guessing-Game/index.html",
+    "static/css/2.679831fc.chunk.css.map": "/Weather-Guessing-Game/static/css/2.679831fc.chunk.css.map",
+    "static/css/main.86675dd0.chunk.css.map": "/Weather-Guessing-Game/static/css/main.86675dd0.chunk.css.map",
+    "static/js/2.f517104b.chunk.js.LICENSE.txt": "/Weather-Guessing-Game/static/js/2.f517104b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0956b95a.js",
+    "static/css/2.679831fc.chunk.css",
+    "static/js/2.f517104b.chunk.js",
+    "static/css/main.86675dd0.chunk.css",
+    "static/js/main.1a75c680.chunk.js"
+  ]
+}
