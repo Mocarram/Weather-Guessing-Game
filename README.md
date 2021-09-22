@@ -1,10 +1,13 @@
+# Live Demo
+
+- https://Mocarram.github.io/Weather-Guessing-Game
+
 # Techs
 
 - React
 - Redux
 
-# Progress report
+# Api's
 
-- To be completed within 30 September 2021
-- Yet to do complete UI design - 17-09-21
-- Functionalities are done - 13-09-21
+- https://openweathermap.org/ - For weather data
+- https://ipgeolocation.io/ - For time data
