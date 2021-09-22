@@ -1,8 +1,8 @@
 {
   "name": "weather-game",
   "version": "0.1.0",
-  "private": true,
-   "homepage": "https://Mocarram.github.io/Weather-Guessing-Game",
+  "private": false,
+   "homepage": "https://mocarram.github.io/Weather-Guessing-Game",
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^4.2.4",

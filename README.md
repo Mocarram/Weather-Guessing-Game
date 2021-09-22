@@ -1,6 +1,6 @@
 # Live Demo
 
-- https://Mocarram.github.io/Weather-Guessing-Game
+- https://weather-guessing-game.web.app/
 
 # Techs
 

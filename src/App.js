@@ -7,7 +7,7 @@ import Result from "./components/Result";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/">
       <div className="App">
         <Switch>
           <Route exact path="/result">
