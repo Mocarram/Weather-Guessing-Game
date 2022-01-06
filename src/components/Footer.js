@@ -12,7 +12,7 @@ function Footer() {
         <button>Github</button>{" "}
       </a>
       <a
-        href="https://www.linkedin.com/in/mocarram-hossain-224980130/"
+        href="https://www.linkedin.com/in/mocarram"
         target="_blank"
         rel="noreferrer"
       >
